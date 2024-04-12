@@ -10,4 +10,4 @@ components:
     manifests:
       - name: dev-namespace
         files:
-          - uds-package-app-ns.yaml
+          - uds-package-ns.yaml

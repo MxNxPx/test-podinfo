@@ -1,7 +1,7 @@
 kind: UDSBundle
 metadata:
-  name: uds-package-app-test
-  description: A UDS bundle for deploying uds-package-app and it's dependencies on a development cluster
+  name: podinfo-test
+  description: A UDS bundle for deploying podinfo and it's dependencies on a development cluster
   # x-release-please-start-version
   version: 0.0.1-uds.0
   # x-release-please-end
@@ -11,22 +11,22 @@ packages:
     path: ../
     ref: 0.1.0
 
-  - name: depdendency
-    repository: ghcr.io/defenseunicorns/packages/uds/postgres-operator
-    ref: 1.10.1-uds.4-upstream
-    overrides:
-      postgres-operator:
-        uds-postgres-config:
-          variables:
-            - name: POSTGRESQL
-              description: "Configure postgres using CRs via the uds-postgres-config chart"
-              path: postgresql
+#  - name: depdendency
+#    repository: ghcr.io/defenseunicorns/packages/uds/postgres-operator
+#    ref: 1.10.1-uds.4-upstream
+#    overrides:
+#      postgres-operator:
+#        uds-postgres-config:
+#          variables:
+#            - name: POSTGRESQL
+#              description: "Configure postgres using CRs via the uds-postgres-config chart"
+#              path: postgresql
+#
+#  - name: dev-secrets
+#    path: ../
+#    ref: 0.1.0
 
-  - name: dev-secrets
-    path: ../
-    ref: 0.1.0
-
-  - name: uds-package-app
+  - name: podinfo
     path: ../
     # x-release-please-start-version
     ref: 0.0.1-uds.0

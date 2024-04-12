@@ -11,4 +11,4 @@ variables:
       version: "13"
       ingress:
         remoteGenerated: Anywhere
-  uds-package-app:
+  podinfo:

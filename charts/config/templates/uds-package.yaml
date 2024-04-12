@@ -1,106 +1,35 @@
 apiVersion: uds.dev/v1alpha1
 kind: Package
 metadata:
-  name: gitlab
+  name: podinfo
   namespace: {{ .Release.Namespace }}
 spec:
   {{- if .Values.sso }}
   sso:
-    - name: Gitlab SSO
-      clientId: uds-core-gitlab
+    - name: SSO
+      clientId: uds-core-podinfo
       redirectUris:
-        - "https://gitlab.{{ .Values.domain }}/users/auth/openid_connect/callback"
+        - "https://podinfo.{{ .Values.domain }}/users/auth/openid_connect/callback"
   {{- end }}
   network:
     expose:
-      - service: gitlab-webservice-default
+      - service: podinfo
         podLabels:
-          app: webservice
-        host: gitlab
+          app.kubernetes.io/name: podinfo
+        host: podinfo
         gateway: tenant
-        port: 8181
-      - service: gitlab-registry
-        podLabels:
-          app: registry
-        host: registry
-        gateway: tenant
-        port: 5000
+        port: 9898
+
     allow:
       - direction: Ingress
         remoteGenerated: IntraNamespace
 
       - direction: Ingress
-        # todo: this should be scoped when we know where the runner is
-        podLabels:
-          app: webservice
-        port: 8181
-        description: "Runner Ingress Workhorse"
-
-      - direction: Ingress
         remoteNamespace: monitoring
         remotePodLabels:
           app: prometheus
         podLabels:
-          app: gitlab-exporter
-        port: 9168
-        description: "Monitoring Exporter"
+          app.kubernetes.io/name: podinfo
+        port: 15021
+        description: "Monitoring"
 
-      - direction: Ingress
-        podLabels:
-          app: runner
-        remoteNamespace: monitoring
-        remotePodLabels:
-          app: prometheus
-
-        port: 9252
-        description: "Monitoring Runner"
-
-      - direction: Egress
-        podLabels:
-          app: registry
-        remoteGenerated: Anywhere
-        description: "Registry Storage"
-
-      - direction: Egress
-        podLabels:
-          app: sidekiq
-        remoteGenerated: Anywhere
-        description: "Sidekiq Storage"
-
-      - direction: Egress
-        podLabels:
-          app: migrations
-        remoteGenerated: Anywhere
-        description: "Migrations Storage"
-      
-      - direction: Egress
-        podLabels:
-          app: toolbox
-        remoteGenerated: Anywhere
-        description: "Toolbox egress to database, redis and storage"
-
-      - direction: Egress
-        remoteGenerated: IntraNamespace
-
-      - direction: Egress
-        # todo: this is over permissive, need to scope it down
-        remoteGenerated: KubeAPI
-
-      - direction: Egress
-        remoteNamespace: tempo
-        remotePodLabels:
-          app.kubernetes.io/name: tempo
-        port: 9411
-        description: "Tempo"
-
-      - direction: Egress
-        podLabels:
-          app: webservice
-        port: 443
-        description: "SSO"
-
-      - direction: Egress
-        podLabels:
-          app: webservice
-        remoteGenerated: Anywhere
-        description: "Webservice Storage"

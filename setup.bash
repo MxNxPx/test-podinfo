@@ -26,9 +26,9 @@ prep_repo() {
   export HELP_UDS_PACKAGE_APP_NS=${HELP_UDS_PACKAGE_APP_NS}
   export HELP_UDS_PACKAGE_APP_HOSTNAME=${HELP_UDS_PACKAGE_APP_HOSTNAME}
 
-  find . -type f ! \( -name 'setup.bash' \) -exec sed -i "s|uds-package-app|$HELP_UDS_PACKAGE_APP_NAME|g" '{}' \; -exec ls -ld '{}' \;
-  find . -type f ! \( -name 'setup.bash' \) -exec sed -i "s|uds-package-app-ns|$HELP_UDS_PACKAGE_APP_NS|g" '{}' \; -exec ls -ld '{}' \;
-  find . -type f ! \( -name 'setup.bash' \) -exec sed -i "s|hostname-for-uds-package|$HELP_UDS_PACKAGE_APP_HOSTNAME|g" '{}' \; -exec ls -ld '{}' \;
+  find . -type f ! \( -name 'setup.bash' -o -path '*/.git/*' \) -exec sed -i "s|uds-package-app|$HELP_UDS_PACKAGE_APP_NAME|g" '{}' \;
+  find . -type f ! \( -name 'setup.bash' -o -path '*/.git/*' \) -exec sed -i "s|ns-for-uds-package|$HELP_UDS_PACKAGE_APP_NS|g" '{}' \;
+  find . -type f ! \( -name 'setup.bash' -o -path '*/.git/*' \) -exec sed -i "s|hostname-for-uds-package|$HELP_UDS_PACKAGE_APP_HOSTNAME|g" '{}' \;
 }
 
 case "${1:-}" in

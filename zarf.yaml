@@ -1,0 +1,44 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/defenseunicorns/zarf/main/zarf.schema.json
+kind: ZarfPackageConfig
+metadata:
+  name: podinfo
+  description: "Podinfo Package"
+  # x-release-please-start-version
+  version: "0.0.1-uds.0"
+  # x-release-please-end
+
+variables:
+  - name: DOMAIN
+    default: "uds.dev"
+
+components:
+  - name: podinfo
+    required: true
+    description: "Deploy podinfo with registry1 images"
+    import:
+      path: common
+    only:
+      flavor: registry1
+      cluster:
+        architecture: amd64
+    charts:
+      - name: podinfo
+        valuesFiles:
+          - values/registry1-values.yaml
+    images:
+      - "stefanprodan/podinfo:6.0.0"
+
+  # Note: upstream flavor is experimental
+  - name: podinfo
+    required: true
+    description: "Deploy podinfo"
+    import:
+      path: common
+    only:
+      flavor: upstream
+    charts:
+      - name: podinfo
+        valuesFiles:
+          - values/upstream-values.yaml
+    images:
+      - "ghcr.io/stefanprodan/podinfo:6.0.0"

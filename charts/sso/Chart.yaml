@@ -1,6 +1,6 @@
 apiVersion: v2
-name: uds-package-app-sso
-description: uds-package-app-sso
+name: podinfo-sso
+description: podinfo-sso
 
 # A chart can be either an 'application' or a 'library' chart.
 #

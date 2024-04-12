@@ -1,1 +1,1 @@
-# uds-package-app
+# uds-package-podinfo

@@ -1,6 +1,6 @@
 apiVersion: v2
-name: uds-package-app-config
-description: uds-package-app-config
+name: podinfo-config
+description: podinfo-config
 
 # A chart can be either an 'application' or a 'library' chart.
 #

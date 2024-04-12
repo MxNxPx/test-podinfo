@@ -5,8 +5,8 @@ tasks:
         wait:
           cluster:
             kind: Deployment
-            name: uds-package-app
-            namespace: uds-package-app-ns
+            name: podinfo
+            namespace: podinfo
             condition: Available
 
       # StatefulSets don't show conditions themselves so we look for an underlying Pod
@@ -14,8 +14,8 @@ tasks:
         wait:
           cluster:
             kind: Pod
-            name: app=uds-package-app
-            namespace: uds-package-app-ns
+            name: app=podinfo
+            namespace: podinfo
             condition: Ready
 
   - name: ingress
@@ -24,5 +24,5 @@ tasks:
         wait:
           network:
             protocol: https
-            address: hostname-for-uds-package.uds.dev
+            address: podinfo.uds.dev
             code: 200
