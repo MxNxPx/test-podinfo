@@ -13,8 +13,8 @@
             "hostType": "docker",
             "description": "Encrypted creds for registry1, scoped to this Github org using: https://github.com/renovatebot/renovate/blob/main/docs/usage/configuration-options.md#encrypted",
             "encrypted": {
-                "username": "",
-                "password": ""
+                "username": "wcFMA/xDdHCJBTolAQ/8DLFeW3p24Az9STUOuEA9cuwh59sczdD/AlIPT2Km6QglmDyXDZOenTdgx+4+JPLC2zH1W7y4siYH+A1l/U8QjWia8xg9NdvQqpTdyS+/UX9Iss5eQ+OlRGiybHQS1PB80Fm95KPBpUutcCO7QQHQc/i6C6j6xx1gzfSM+VDlHpMDK68gg/NyM+npGlFm4brM30oOZn4K2X8DSMCKaA0ln2a1FvIx1hXzIz0PwVND4VtgN30Hx0+PQDXLY/5BRtEZs8KNx1mOgCYgAI0LHkdbhkhmMw+oADQ/AQAYuC0DMVtDxHoetjK+LpK52kE8R7wJTBR7SPsvrmHIrhyhafbtx0ydf3C0I0X5vyMnLLf9+4oT8xf+vBBFPzvwjLzeyj7eD+5KEpWXUqFvANNrYJMcw0KOKWke9iDIt6L9TOpm08hJFYw+aECbIKrFxkSQs9XLEoGBFVrNHbDssBHtcFnaV4cXStsRdTUcep+QF1QRXRMj61glIwEwCsaZsYf9a4RzvhUi4GWDrLCQac2vuH6atRBuhpAYITYA1QEA9VzF4nIDUyEd16HzwBtwQ9RZYc8lPLjDqr8O42y05XeX8/vHYCTKvWgHh+xAPem1PDfLSNNAfmzTcCq118RAm/xxSf9UIp9uiV9itdJuDQh7XXvXuP2Vegxm+nRSHI6EpDlVCq3SUQEoU97ZoHjkOBKrJc5EM3vGHwJXUm6GIhSOh2uktp4Ja+yJFsFT8sLnRhKGAGhRgYsMXd09Vwj9Ho/gHgwEYP4zEky2a1imjvKSLA9XwC8eww",
+                "password": "wcFMA/xDdHCJBTolAQ/8DLFeW3p24Az9STUOuEA9cuwh59sczdD/AlIPT2Km6QglmDyXDZOenTdgx+4+JPLC2zH1W7y4siYH+A1l/U8QjWia8xg9NdvQqpTdyS+/UX9Iss5eQ+OlRGiybHQS1PB80Fm95KPBpUutcCO7QQHQc/i6C6j6xx1gzfSM+VDlHpMDK68gg/NyM+npGlFm4brM30oOZn4K2X8DSMCKaA0ln2a1FvIx1hXzIz0PwVND4VtgN30Hx0+PQDXLY/5BRtEZs8KNx1mOgCYgAI0LHkdbhkhmMw+oADQ/AQAYuC0DMVtDxHoetjK+LpK52kE8R7wJTBR7SPsvrmHIrhyhafbtx0ydf3C0I0X5vyMnLLf9+4oT8xf+vBBFPzvwjLzeyj7eD+5KEpWXUqFvANNrYJMcw0KOKWke9iDIt6L9TOpm08hJFYw+aECbIKrFxkSQs9XLEoGBFVrNHbDssBHtcFnaV4cXStsRdTUcep+QF1QRXRMj61glIwEwCsaZsYf9a4RzvhUi4GWDrLCQac2vuH6atRBuhpAYITYA1QEA9VzF4nIDUyEd16HzwBtwQ9RZYc8lPLjDqr8O42y05XeX8/vHYCTKvWgHh+xAPem1PDfLSNNAfmzTcCq118RAm/xxSf9UIp9uiV9itdJuDQh7XXvXuP2Vegxm+nRSHI6EpDlVCq3SUQEoU97ZoHjkOBKrJc5EM3vGHwJXUm6GIhSOh2uktp4Ja+yJFsFT8sLnRhKGAGhRgYsMXd09Vwj9Ho/gHgwEYP4zEky2a1imjvKSLA9XwC8eww"
             }
         }
     ],
