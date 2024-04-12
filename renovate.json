@@ -10,7 +10,8 @@
     "hostRules": [],
     "packageRules": [
       {
-        "hostName": "registry1.dso.mil",
+        "matchHost": "registry1.dso.mil",
+        "matchPackagePatterns": ["*"],
         "enabled": false
       }
     ],
