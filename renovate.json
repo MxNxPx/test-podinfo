@@ -11,6 +11,8 @@
     "packageRules": [
       {
         "hostType": "docker",
+        "username": null,
+        "password": null,
         "token": null
       }
     ],
