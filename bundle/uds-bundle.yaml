@@ -3,7 +3,7 @@ metadata:
   name: podinfo-test
   description: A UDS bundle for deploying podinfo and it's dependencies on a development cluster
   # x-release-please-start-version
-  version: 0.0.1-uds.0
+  version: 0.0.1-uds.1
   # x-release-please-end
 
 packages:
@@ -29,6 +29,6 @@ packages:
   - name: podinfo
     path: ../
     # x-release-please-start-version
-    ref: 0.0.1-uds.0
+    ref: 0.0.1-uds.1
     # x-release-please-end
     overrides:
