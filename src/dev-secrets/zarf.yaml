@@ -1,0 +1,24 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/defenseunicorns/zarf/main/zarf.schema.json
+kind: ZarfPackageConfig
+metadata:
+  name: dev-secrets
+  version: "0.1.0"
+
+components:
+  - name: dependency-password
+    required: true
+    actions:
+      onDeploy:
+        before:
+          - cmd: kubectl get secret -n dependency-ns dependency --template={{.data.password}} | base64 -d
+            mute: true
+            setVariables:
+              - name: DEPENDENCY_PASSWORD
+                sensitive: true
+  - name: dependency-secret
+    required: true
+    manifests:
+      - name: dependency
+        namespace: dependency-ns
+        files:
+          - dependency-secret.yaml

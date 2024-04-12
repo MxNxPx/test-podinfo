@@ -1,0 +1,4 @@
+upgradeCheck:
+  image:
+    repository: registry1.dso.mil/ironbank/redhat/ubi/ubi9
+    tag: "9.3"

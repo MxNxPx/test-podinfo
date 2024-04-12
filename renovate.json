@@ -1,0 +1,12 @@
+{
+    "extends": [
+      "github>defenseunicorns/uds-common//config/renovate.json5",
+      ":semanticCommits",
+      ":semanticPrefixFixDepsChoreOthers",
+      "group:all",
+      "replacements:all",
+      "workarounds:all"
+    ],
+    "schedule": ["after 5am and before 7am every weekday"],
+    "packageRules": []
+  }

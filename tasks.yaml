@@ -1,0 +1,60 @@
+includes:
+  - cleanup: ./tasks/cleanup.yaml
+  - dependencies: ./tasks/dependencies.yaml
+  - test: ./tasks/test.yaml
+  - create: https://raw.githubusercontent.com/defenseunicorns/uds-common/v0.3.9/tasks/create.yaml
+  - lint: https://raw.githubusercontent.com/defenseunicorns/uds-common/v0.3.9/tasks/lint.yaml
+  - pull: https://raw.githubusercontent.com/defenseunicorns/uds-common/v0.3.9/tasks/pull.yaml
+  - deploy: https://raw.githubusercontent.com/defenseunicorns/uds-common/v0.3.9/tasks/deploy.yaml
+  - setup: https://raw.githubusercontent.com/defenseunicorns/uds-common/v0.3.9/tasks/setup.yaml
+
+tasks:
+  - name: default
+    description: Create K3D Cluster with UDS-Core + Package
+    actions:
+      - task: create-uds-test-bundle
+      - task: setup:k3d-test-cluster
+      - task: deploy:test-bundle
+
+  - name: create-uds-package
+    description: Create UDS Package, No dependencies included
+    actions:
+      - task: create:package
+        with:
+          options: "--skip-sbom"
+
+  - name: create-uds-test-bundle
+    description: Create a local UDS bundle with dependencies
+    actions:
+      - task: create-uds-package
+      - task: dependencies:create
+      - task: create:test-bundle
+
+  - name: create-uds-latest-release-bundle
+    description: Create UDS bundle with dependencies based on the latest release
+    actions:
+      - task: pull:latest-package-release
+        with:
+          spoof_release: "true"
+      - task: dependencies:create
+      - task: create:test-bundle
+
+  - name: test-package
+    description: Test the UDS package from the current branch
+    actions:
+      - task: create-uds-test-bundle
+      - task: setup:k3d-test-cluster
+      - task: deploy:test-bundle
+      - task: test:health-check
+      - task: test:ingress
+
+  - name: test-upgrade
+    description: Test an upgrade from the latest released package to the current branch
+    actions:
+      - task: create-uds-latest-release-bundle
+      - task: setup:k3d-test-cluster
+      - task: deploy:test-bundle
+      - task: create-uds-test-bundle
+      - task: deploy:test-bundle
+      - task: test:health-check
+      - task: test:ingress

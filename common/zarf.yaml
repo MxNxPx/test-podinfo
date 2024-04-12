@@ -1,0 +1,25 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/defenseunicorns/zarf/main/zarf.schema.json
+kind: ZarfPackageConfig
+metadata:
+  name: uds-package-app-common
+  description: "UDS Common Package"
+
+components:
+  - name: uds-package-app
+    required: true
+    charts:
+      - name: uds-package-app-config
+        namespace: uds-package-app-ns
+        version: 0.1.0
+        localPath: ../charts/config
+      - name: uds-package-app-sso
+        namespace: uds-package-app-ns
+        version: 0.1.0
+        localPath: ../charts/sso
+      - name: uds-package-app
+        namespace: uds-package-app-ns
+        url: https://repo1.dso.mil/big-bang/product/packages/uds-package-app.git
+        gitPath: chart
+        version: "7.10.1-bb.0"
+        valuesFiles:
+          - ../values/common-values.yaml

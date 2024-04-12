@@ -1,0 +1,4 @@
+upgradeCheck:
+  image:
+    repository: docker.io/redhat/ubi8
+    tag: "8.9"
