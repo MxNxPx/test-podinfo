@@ -10,6 +10,7 @@
     "hostRules": [],
     "packageRules": [
       {
+        "matchPackagePatterns": ["^.*$"],
         "hostType": "docker",
         "username": null,
         "password": null,
