@@ -8,6 +8,12 @@
       "workarounds:all"
     ],
     "hostRules": [],
+    "packageRules": [
+      {
+        "hostName": "registry1.dso.mil",
+        "enabled": false
+      }
+    ],
     "schedule": ["after 5am and before 7am every weekday"],
     "packageRules": []
   }
