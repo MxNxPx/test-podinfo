@@ -10,9 +10,8 @@
     "hostRules": [],
     "packageRules": [
       {
-        "matchHost": "registry1.dso.mil",
-        "matchPackagePatterns": ["*"],
-        "enabled": false
+        "hostType": "docker",
+        "token": null
       }
     ],
     "schedule": ["after 5am and before 7am every weekday"]
